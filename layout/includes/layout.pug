@@ -10,17 +10,9 @@
 doctype html
 html(lang=config.language)
   head
-    meta(charset='UTF-8')
-    title= pageTitle
-    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
-      //- stylesheets list from _config.yml
-      each url in theme.stylesheets
-        link(rel='stylesheet', href=url)
+    include ./head.pug
   body
-    #menu-outer
-      nav#menu-inner
-        each url, label in theme.menu
-          a(href=url)= label
+    include header/nav.pug
     #content-outer
       #content-inner
         if body
@@ -37,7 +29,3 @@ html(lang=config.language)
         span .
         br
         a(href=config.root) Home
-    if theme.scripts !== undefined && theme.scripts.length > 0
-      //- scripts list from config.yml
-      each url in theme.scripts
-        script(src=url)

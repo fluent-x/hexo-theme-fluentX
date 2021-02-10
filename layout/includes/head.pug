@@ -1,0 +1,47 @@
+meta(charset='UTF-8')
+title !{theme.site.title}
+link(rel='icon', href='./favicon.ico', type='image/x-icon')
+link(rel='stylesheet' href='/css/index.css')
+script(src='/js/main.js')
+
+//- 预加载
+script(defer, src='https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js')
+
+//- Snackbar
+if theme.custom.snackbar.enable
+  script(defer, src='https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js')
+  link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css')
+
+//- Vue
+if theme.custom.vue.enable
+  script(defer, src='https://cdn.jsdelivr.net/npm/vue@2.6.11')
+
+//- fontawesome
+link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css')
+
+//- Sweetalert
+if theme.custom.sweetalert.enable
+  script(defer src='https://cdn.jsdelivr.net/npm/sweetalert/dist/sweetalert.min.js')
+  link(rel='https://cdn.jsdelivr.net/npm/sweetalert/dist/sweetalert.min.css')
+
+//- Pace.js
+if theme.custom.pacejs.enable
+  script(async src='https://cdn.jsdelivr.net/gh/HCLonely/hclonely.github.io@1.4.7/js/custom/pace.min.js')
+  link(rel='https://cdn.jsdelivr.net/gh/HCLonely/hclonely.github.io@1.4.7/css/custom/pace-theme-flash.min.css')
+
+//- 以下功能废弃
+//- Microsoft Fluent
+//- if theme.custom.fluent.enable
+//-  link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/@fluentui/react@7.158.3/dist/css/fabric.min.css')
+//-  link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/@fluentui/react@7.158.3/dist/css/fabric-11.0.0.scoped.min.css')
+//-  script(async, src='https://cdn.jsdelivr.net/npm/react')
+//-  script(async, src='https://cdn.jsdelivr.net/npm/react-dom')
+//-  script(async, src='https://cdn.jsdelivr.net/npm/@fluentui/react')
+//-  script(async, src='https://cdn.jsdelivr.net/npm/@fluentui/react@7.158.3/dist/fluentui-react.min.js')
+//-  script(async, src='https://cdn.jsdelivr.net/npm/@fluentui/react@7.158.3/dist/fluentui-react.umd.js')
+//-  script(defer, src='https://cdn.jsdelivr.net/npm/office-ui-fabric-react@7/dist/office-ui-fabric-react.js')
+//-  script(defer, src='https://cdn.jsdelivr.net/npm/@uifabric/react-hooks@7/dist/react-hooks.js')
+//- 以上功能废弃
+
+//- Busuanzi
+script(defer, src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')

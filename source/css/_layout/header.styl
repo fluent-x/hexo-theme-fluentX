@@ -1,0 +1,184 @@
+/* Header样式基于Butterfly */
+#page-header
+  position: relative
+  width: 100%
+  background-color: $light-blue
+  background-position: center center
+  background-size: cover
+  background-repeat: no-repeat
+  transition: all .5s
+
+#site-info
+    position: absolute
+    top: $index_site_info_top
+    padding: 0 .5rem
+    width: 100%
+
+    #nav
+      background: rgba(255, 255, 255, .8)
+      box-shadow: 0 5px 6px -5px rgba(133, 133, 133, .6)
+
+      a
+        color: var(--font-color)
+        text-shadow: none
+
+  &.nav-fixed
+    #nav
+      position: fixed
+      top: -60px
+      z-index: 91
+      background: rgba(255, 255, 255, .8)
+      box-shadow: 0 5px 6px -5px alpha($grey, .6)
+      transition: transform .2s ease-in-out, opacity .2s ease-in-out
+
+      a,
+      #site-name,
+      #toggle-menu
+        color: var(--font-color)
+        text-shadow: none
+
+        &:hover
+          color: $light-blue
+
+  &.nav-visible
+    #page-nav
+      transition: all 2.5s
+      transform: translate3d(0, 100%, 0)
+
+    & + .layout
+      & > .aside-content > .sticky_layout
+        top: 70px
+        transition: top 2.5s
+
+#page-nav
+  position: absolute
+  top: 0
+  z-index: 90
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  width: 100%
+  height: 60px
+  font-size: 1.2em
+  transition: all 2.5s
+  align-items: center
+
+  
+  +maxWidth768()
+    padding: 0 16px
+
+  &.show
+    opacity: 1
+
+  #blog_name
+    flex: 1
+    padding: 0 2rem
+
+  #toggle-menu
+    display: none
+    padding: .1rem 0 0 .3rem
+    vertical-align: top
+
+    &:hover
+      color: var(--white)
+
+  a
+    color: var(--light-grey)
+
+    &:hover
+      color: var(--white)
+
+  #site-name
+    text-shadow: .1rem .1rem .2rem rgba($dark-black, .15)
+    font-weight: bold
+    cursor: pointer
+
+  .menus_items
+    display: inline
+    padding 0 3rem
+
+    .menus_item
+      position: relative
+      display: inline-block
+      padding: 0 0 0 .7rem
+
+      &:hover
+        .menus_item_child
+          display: block
+
+        i.expand
+          transform: rotate(180deg) !important
+
+      i.expand
+        padding: 4px
+        transition: transform .3s
+
+      & > a
+        &:after
+          position: absolute
+          bottom: 0
+          left: 0
+          z-index: -1
+          width: 0
+          height: 3px
+          background-color: lighten($theme-color, 30%)
+          content: ''
+          transition: all .3s ease-in-out
+
+        &:hover
+          &:after
+            width: 100%
+            transition: all 2.5s
+
+      .menus_item_child
+        position: absolute
+        right: 0
+        display: none
+        margin-top: 8px
+        padding: 0
+        width: max-content
+        background-color: var(--sidebar-bg)
+        box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
+        animation: sub_menus .3s .1s ease both
+
+        &:before
+          position: absolute
+          top: -8px
+          left: 0
+          width: 100%
+          height: 20px
+          content: ''
+
+        li
+          list-style: none
+
+          &:hover
+            background: #49b1f5
+            transition: all 2.5s
+
+          a
+            display: inline-block
+            padding: .3rem .7rem
+            width: 100%
+            color: var(--font-color)!important
+            text-shadow: none!important
+
+  &.hide-menu
+    #toggle-menu
+      display: inline-block !important
+
+      .site-page
+        font-size: inherit
+
+    .menus_items
+      position: absolute
+      left: 0
+      visibility: hidden
+      opacity: 0
+
+  .site-page
+    position: relative
+    padding-bottom: .3rem
+    text-shadow: .05rem .05rem .1rem rgba($dark-black, .3)
+    font-size: .78em
+    cursor: pointer
